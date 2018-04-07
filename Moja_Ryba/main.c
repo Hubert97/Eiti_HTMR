@@ -1,24 +1,26 @@
 #include <stdio.h>
 #include <stdlib.h>
-struct Tile
+#define NAME_MAX 256
+
+typedef struct Tile
 {
-int Penguin_no
+int Player_no;
 int Fish_no;
 int if_available;
-};
+} Pole;
 
-struct Penguin
+typedef struct Penguin
 {
 int pos_X, pos_Y;
 int Player_No;
-};
+} Pengu;
 
-struct Player
+typedef struct Player
 {
-char[256] Name;
+char Name[NAME_MAX];
 int Number_;
 int Cought_Fish_;
-};
+} Gracz;
 
 int main()
 {
