@@ -1,3 +1,5 @@
 
 *.o
 *.o
+Moja_Ryba/.objs/main.o
+*.exe
