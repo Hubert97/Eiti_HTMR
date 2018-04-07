@@ -2,7 +2,7 @@
 #include <stdlib.h>
 struct Tile
 {
-int Penguin_no
+int Penguin_no;
 int Fish_no;
 int if_available;
 };
@@ -15,14 +15,13 @@ int Player_No;
 
 struct Player
 {
-char[256] Name;
+char Name[256];
 int Number_;
 int Cought_Fish_;
 };
 
 int main()
 {
-
 
     printf("Hello world!\n");
     return 0;
