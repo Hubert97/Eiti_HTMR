@@ -12,7 +12,6 @@ int if_available;
 typedef struct
 {
 int pos_X, pos_Y;
-int Player_No;
 } Penguin;
 
 typedef struct
@@ -21,6 +20,7 @@ char Name[NAME_MAX];
 int Number_;
 int Cought_Fish_;
 Penguin *Penguins;
+int amount_of_penguins;
 } Player;
 
 int main()
