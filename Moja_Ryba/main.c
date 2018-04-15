@@ -31,6 +31,6 @@ int main()
     Player c;
     c.Cought_Fish_=2;
 
-    printf("Hello world! %d \n", c.Cought_Fish_);
+    printf("\nHello world! %d \n", c.Cought_Fish_);
     return 0;
 }

@@ -19,6 +19,8 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="Board.h" />
+		<Unit filename="Input_Output.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
