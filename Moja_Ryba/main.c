@@ -34,11 +34,11 @@ int main()
     Board *Board;
     char Input_File_Name[]="Input.txt";
     char Output_File_Name[] = "Output.txt";
-    Load( Board, Input_File_Name);
+    Load( &Board, Input_File_Name);
 
     Playertype c;
     c.Cought_Fish_=2;
 
-    printf("\nHello world! %d \n", c.Cought_Fish_);
+    printf("\n %d \n", c.Cought_Fish_);
     return 0;
 }
