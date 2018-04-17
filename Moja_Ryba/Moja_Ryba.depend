@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1523804329 source:c:\users\huber\documents\codeblocks\git_ryba\eiti_htmr\moja_ryba\main.c
+1523957817 source:c:\users\huber\documents\codeblocks\git_ryba\eiti_htmr\moja_ryba\main.c
 	<stdio.h>
 	<stdlib.h>
 	"Input_Output.h"
@@ -7,6 +7,6 @@
 
 1523798826 c:\users\huber\documents\codeblocks\git_ryba\eiti_htmr\moja_ryba\input_output.h
 
-1523805446 c:\users\huber\documents\codeblocks\git_ryba\eiti_htmr\moja_ryba\board.h
+1523957871 c:\users\huber\documents\codeblocks\git_ryba\eiti_htmr\moja_ryba\board.h
 	<stdio.h>
 

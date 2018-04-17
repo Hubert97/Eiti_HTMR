@@ -12,13 +12,21 @@ int pos_X, pos_Y;
 
 typedef struct
 {
+
 char Name[NAME_MAX];
 int Number_;
 int Cought_Fish_;
 Penguin *Penguins;
 int amount_of_penguins;
-} Player;
 
+} Playertype;
+
+typedef struct
+{
+    Playertype * Players;
+    int No_Player_;
+
+} Players;
 
 int main()
 {
@@ -28,7 +36,7 @@ int main()
     char Output_File_Name[] = "Output.txt";
     Load( Board, Input_File_Name);
 
-    Player c;
+    Playertype c;
     c.Cought_Fish_=2;
 
     printf("\nHello world! %d \n", c.Cought_Fish_);

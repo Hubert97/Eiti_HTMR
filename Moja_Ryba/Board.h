@@ -20,7 +20,7 @@ void Load(Board* Board, char File_Name[] )
     char tmp[32];
     printf("\n Loading File");
     Input=fopen(File_Name, "r");
-    fgets(tmp, , (FILE*)Input);
+    fgets(tmp, 6 , (FILE*)Input);
     printf(".. \n%s end",tmp);
 
 
