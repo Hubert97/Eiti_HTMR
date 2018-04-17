@@ -14,14 +14,23 @@ typedef struct
     int size_n;
 } Board;
 
+void copy_2()
+
 void Load(Board* Board, char File_Name[] )
 {
     FILE *Input;
     char tmp[32];
-    printf("\n Loading File");
+    char conv[3];
+    conv[2]='\0';
+        printf("\n Loading File");
     Input=fopen(File_Name, "r");
     fgets(tmp, 6 , (FILE*)Input);
-    printf(".. \n%s end",tmp);
+        printf("..",tmp);
+    conv[0]=tmp[0];
+    conv[1]=tmp[1];
+    atoi()
+
+
 
 
 }
