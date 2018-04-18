@@ -1,3 +1,6 @@
+#ifndef BOARD_H
+#define BOARD_H
+#include "Players.h"
 #include <stdio.h>
 
 typedef struct
@@ -12,14 +15,14 @@ typedef struct
     Tile ** Plane;
     int size_m;
     int size_n;
-} Board;
+} Board_type;
 
 void copy_2()
 {
 
 }
 
-void Load(Board* Board, char File_Name[] )
+void Load(Board_type* Board, char File_Name[] )
 {
     FILE *Input;
     char tmp_a[32];
@@ -28,21 +31,21 @@ void Load(Board* Board, char File_Name[] )
     int iter_b=0;
 
         printf("\n Loading File");
-    Input=fopen(File_Name, "r");
+    Input=fopen(File_Name, "r");               //opening file
    // fgets(tmp, 6 , (FILE*)Input);
-    fscanf(Input,"%d %d", &(Board->size_m), &(Board->size_n) );
+    fscanf(Input,"%d %d", &(Board->size_m), &(Board->size_n) );     //loading size of board
         printf(".");
    // sscanf(tmp, "%d %d" , &(Board->size_m), &(Board->size_n));
         printf(".");
-        printf(" Board Size: %d %d ", Board->size_m, Board->size_n);
-    Board->Plane=malloc(sizeof(Tile*)*Board->size_m);
+        printf(" Board Size: %d %d ", Board->size_m, Board->size_n);    //printing size of board
+    Board->Plane=malloc(sizeof(Tile*)*Board->size_m);                   //allocating Board
     for(iter_a=0;iter_a<Board->size_m;++iter_a)
     {
         printf(".");
         Board->Plane[iter_a]=malloc(sizeof(Tile)*Board->size_n);
     }
      printf("\n");
-    for(iter_a=0 ; iter_a<Board->size_m ; ++iter_a)
+    for(iter_a=0 ; iter_a<Board->size_m ; ++iter_a)                     //filling board with data from Input File
     {
         for( iter_b=0; iter_b<Board->size_n; ++iter_b)
         {
@@ -69,3 +72,11 @@ void Load(Board* Board, char File_Name[] )
 
 fclose(Input);
 }
+
+
+void Make_Players(Board_type* Board, Player_type *Player_List)
+{
+
+}
+
+#endif // BOARD_H
