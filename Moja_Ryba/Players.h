@@ -23,7 +23,7 @@ int amount_of_penguins;
 typedef struct
 {
     Player_type * Players;
-    int No_Player_;
+    int amout_of_players;
 
 } Players;
 #endif // PlAYERS_H

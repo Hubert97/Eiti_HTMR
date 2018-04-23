@@ -9,15 +9,13 @@
 int main()
 {
 
-    Board_type *Board;
-    Player_type *Player_list;
+    Board_type Board;
+    Players Player_list;
     char Input_File_Name[]="Input.txt";
     char Output_File_Name[] = "Output.txt";
-    Load( &Board, Input_File_Name);
+    Load( &Board,&Player_list, Input_File_Name);
+    Is_Data_Correct(&Board, &Player_list);
+    Save(&Board,&Player_list,Output_File_Name);
 
-    Player_type c;
-    c.Cought_Fish_=2;
-
-    printf("\n %d \n", c.Cought_Fish_);
     return 0;
 }
