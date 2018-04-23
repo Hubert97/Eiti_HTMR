@@ -92,7 +92,15 @@
 
         }
 
-        printf("\n err code: %d Input File not correct. \n", err);
+        printf("\n err code: %d ", err);
+        if(err!=0)
+        {
+           printf(" Discrepancy found. Input file not valid \n");
+        }
+        else
+        {
+            printf(" Structure integrity correct. \n");
+        }
 
 return err;
 
@@ -170,23 +178,44 @@ printf("\n zostalo linni:  %d \n",lines);
 
         }
 
-
+        system("cls");
         fclose(Input);
 
     }
 
 
-    int Save(Board_type *Board,Players *Player_list,char Output_File_Namep[] )
+    int Save(Board_type *Board,Players *Player_list, char Output_File_Name[] )
     {
-        if(!Is_Data_Correct(Board,Player_list))
+        if(Is_Data_Correct(Board,Player_list)==0)
             {
+
                 FILE *Output;
+                Output=fopen(Output_File_Name, "w");
+                int iter_a=0;
+                int iter_b=0;
+                fprintf(Output, "%d %d\n", Board->size_m, Board->size_n);
+                for(iter_a=0 ; iter_a<Board->size_m ; ++iter_a)                     //filling board with data from Input File
+                {
+                    for( iter_b=0; iter_b<Board->size_n; ++iter_b)
+                    {
+                        fprintf(Output,"%d%d " , Board->Plane[iter_a][iter_b].Fish_no,Board->Plane[iter_a][iter_b].Player_no);
+                    }
+                 fprintf(Output,"\n");
 
-fprintf(Output, "%d %d", Board->size_m, Board->size_n);
+                }
 
 
+                for(iter_a=0; iter_a<Player_list->amout_of_players;++iter_a)
+                {
+                    fprintf(Output, "%s %d %d\n", Player_list->Players[iter_a].Name, Player_list->Players[iter_a].Number_,Player_list->Players[iter_a].Cought_Fish_ );
+                }
 
+
+   fclose(Output);
+    system("cls");
+    printf("\n Saving to File: %s\n", Output_File_Name);
             }
+
 
     }
 
