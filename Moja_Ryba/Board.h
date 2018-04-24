@@ -44,6 +44,19 @@
         return lines;
     }
 
+    int Is_Size_Correct(Board_type* Board)
+    {
+
+          printf(" Board Size: %d %d ", Board->size_m, Board->size_n);    //printing size of board
+
+          if( 0>(Board->size_n) || 0>(Board->size_m) )            //checking for size error
+            {
+                printf("\n Error: table size not correct");
+                return 1;
+            }
+
+                return 0;
+    }
 
     int Is_Data_Correct(Board_type* Board, Players *Player_List)
     //checks for Discrepancies in structures
@@ -131,13 +144,12 @@ return err;
 
         fscanf(Input,"%d %d", &(Board->size_m), &(Board->size_n) );     //loading size of board
         lines--;
-        printf(" Board Size: %d %d ", Board->size_m, Board->size_n);    //printing size of board
 
-        if( 0>(Board->size_n) || 0>(Board->size_m) )            //checking for size error
+        if( Is_Size_Correct(Board)==1 )            //checking for size error
         {
-            printf("\n Error: table size not correct");
             return 1;
         }
+
         printf(" Board Size: %d %d ", Board->size_m, Board->size_n);    //printing size of board
 
         Board->Plane=malloc(sizeof(Tile*)*Board->size_m);                   //allocating Board
@@ -151,6 +163,10 @@ return err;
         {
             for( iter_b=0; iter_b<Board->size_n; ++iter_b)
             {
+                if (lines<0)              //  error check
+                {
+                    return 1;
+                }
 
                 fscanf(Input,"%s", tmp_a);
 
@@ -188,7 +204,7 @@ return err;
 
         }
 
-        system("cls");
+       // system("cls");
         fclose(Input);
         return 0;
     }

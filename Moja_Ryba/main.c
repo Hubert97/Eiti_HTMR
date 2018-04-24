@@ -20,5 +20,10 @@ int main()
     Is_Data_Correct(&Board, &Player_list);
     Save(&Board,&Player_list,Output_File_Name);
    }
+   else
+    {
+        system("cls");
+    printf("error");
+    }
     return 0;
 }
