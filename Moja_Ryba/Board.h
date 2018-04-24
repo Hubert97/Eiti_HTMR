@@ -19,6 +19,7 @@
 
 
     int countlines(char *File_Name)
+    //counts "\n" in file
     {
         FILE *Input ;
         Input= fopen(File_Name,"r");
@@ -45,6 +46,7 @@
 
 
     int Is_Data_Correct(Board_type* Board, Players *Player_List)
+    //checks for Discrepancies in structures
     {
         int iter_a=0;
         int iter_b=0;
@@ -108,8 +110,8 @@ return err;
     }
 
 
-
     int Load(Board_type* Board, Players *Player_List, char File_Name[] )
+    //Loads Input file and creates structures
     {
 
         FILE *Input;
@@ -117,8 +119,10 @@ return err;
         char tmp_b[2];
         int iter_a=0;
         int iter_b=0;
+        Board->size_m=0;
+        Board->size_n=0;
         int lines=countlines(File_Name);
-printf("\n zostalo linni:  %d \n",lines);
+        //printf("\n zostalo linni:  %d \n",lines);
         // Players Tmp_Player_List;
 
 
@@ -127,7 +131,13 @@ printf("\n zostalo linni:  %d \n",lines);
 
         fscanf(Input,"%d %d", &(Board->size_m), &(Board->size_n) );     //loading size of board
         lines--;
+        printf(" Board Size: %d %d ", Board->size_m, Board->size_n);    //printing size of board
 
+        if( 0>(Board->size_n) || 0>(Board->size_m) )            //checking for size error
+        {
+            printf("\n Error: table size not correct");
+            return 1;
+        }
         printf(" Board Size: %d %d ", Board->size_m, Board->size_n);    //printing size of board
 
         Board->Plane=malloc(sizeof(Tile*)*Board->size_m);                   //allocating Board
@@ -180,11 +190,12 @@ printf("\n zostalo linni:  %d \n",lines);
 
         system("cls");
         fclose(Input);
-
+        return 0;
     }
 
 
     int Save(Board_type *Board,Players *Player_list, char Output_File_Name[] )
+    //saves internal structures to file
     {
         if(Is_Data_Correct(Board,Player_list)==0)
             {
@@ -212,10 +223,10 @@ printf("\n zostalo linni:  %d \n",lines);
 
 
    fclose(Output);
-    system("cls");
+   // system("cls");
     printf("\n Saving to File: %s\n", Output_File_Name);
             }
-
+return 0;
 
     }
 
