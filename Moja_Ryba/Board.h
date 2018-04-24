@@ -122,7 +122,6 @@ return err;
 
     }
 
-
     int Load(Board_type* Board, Players *Player_List, char File_Name[] )
     //Loads Input file and creates structures
     {
@@ -153,12 +152,16 @@ return err;
         printf(" Board Size: %d %d ", Board->size_m, Board->size_n);    //printing size of board
 
         Board->Plane=malloc(sizeof(Tile*)*Board->size_m);                   //allocating Board
+            //making table of pointers
         for(iter_a=0; iter_a<Board->size_m; ++iter_a)
+            //alocating table of pointers
         {
             printf(".");
             Board->Plane[iter_a]=malloc(sizeof(Tile)*Board->size_n);
         }
-        printf("\n");
+
+        printf("\n");// debug
+
         for(iter_a=0 ; iter_a<Board->size_m ; ++iter_a)                     //filling board with data from Input File
         {
             for( iter_b=0; iter_b<Board->size_n; ++iter_b)
@@ -168,7 +171,7 @@ return err;
                     return 1;
                 }
 
-                fscanf(Input,"%s", tmp_a);
+                fscanf(Input,"%s", tmp_a);      //reading file
 
 
                 tmp_b[0]=tmp_a[1];
