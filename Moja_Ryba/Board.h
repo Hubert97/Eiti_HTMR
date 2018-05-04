@@ -249,4 +249,72 @@ return 0;
 
     }
 
+    void Fill_penguins(Board_type* Board, Players *Player_List,const int How_Many_Penguins, const int phase)
+    {
+        int iter_a=0;
+        int iter_b=0;
+        int iter_c=0;
+        int iter_pen=0;
+
+if(phase==0)
+{
+   for(iter_a=0; iter_a<Player_List->amout_of_players; ++iter_a)
+   {
+    Player_List->Players[iter_a].Penguins=malloc(sizeof(Penguin)*How_Many_Penguins);
+   }
+
+}
+else
+
+{
+
+    for(iter_c=1; iter_c<Player_List->amout_of_players; ++iter_c)       //possible bug // couting how many penguins each player has
+   {
+
+     iter_pen=0;
+           for(iter_a=0 ; iter_a<Board->size_m ; ++iter_a)
+        {
+            for( iter_b=0; iter_b<Board->size_n; ++iter_b)
+            {
+
+                if((Board->Plane[iter_a][iter_b].Player_no)==iter_c)
+                {
+                    iter_pen++;
+                }
+
+            }
+        }
+
+         Player_List->Players[iter_c].Penguins=malloc(sizeof(Penguin)*iter_pen);    //alocating penguins
+   }
+
+       for(iter_c=1; iter_c<Player_List->amout_of_players; ++iter_c)       //reading penguin pos
+   {
+
+     iter_pen=0;
+           for(iter_a=0 ; iter_a<Board->size_m ; ++iter_a)
+        {
+            for( iter_b=0; iter_b<Board->size_n; ++iter_b)
+            {
+
+                if((Board->Plane[iter_a][iter_b].Player_no)==iter_c)
+                {
+                    Player_List->Players[iter_c].Penguins[iter_pen].pos_X=iter_a;
+                    Player_List->Players[iter_c].Penguins[iter_pen].pos_Y=iter_b;
+                    Player_List->Players[iter_c].Penguins[iter_pen].Number_=iter_pen;
+                    iter_pen++;
+                }
+
+            }
+        }
+
+
+   }
+
+
+
+}
+
+}
+
     #endif // BOARD_H

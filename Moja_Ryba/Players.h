@@ -6,6 +6,7 @@
 
 typedef struct
 {
+int Number_;
 int pos_X, pos_Y;
 } Penguin;
 
